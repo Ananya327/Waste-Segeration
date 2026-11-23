@@ -18,101 +18,183 @@ st.title("Waste Classification using YOLOv8")
 # --------------------------------------------------
 
 GREEN_ADVISER = {
+
     "plastic": {
         "name": "Plastic Waste",
         "action": (
-            "Separate plastic waste and send it to an appropriate "
-            "recycling facility if accepted. Do not burn plastic."
+            "Clean plastic containers before recycling and separate "
+            "plastic waste properly. Send accepted plastic materials "
+            "to authorized recycling facilities."
+        ),
+        "tip": (
+            "Plastic can be converted into fibres and construction materials."
         ),
         "environment": (
-            "Improper disposal contributes to long-lasting pollution, "
-            "harms wildlife, and can generate microplastics."
+            "Plastic takes hundreds of years to decompose. "
+            "Plastic pollution harms marine life and contaminates "
+            "the natural environment."
         ),
         "health": (
-            "Burning plastic can release harmful fumes. Improperly "
-            "discarded plastic can create hazards for animals and people."
+            "Burning plastic releases toxic gases that may cause "
+            "asthma and lung diseases. Microplastics can also "
+            "contaminate food and drinking water."
         )
     },
 
     "glass": {
         "name": "Glass Waste",
         "action": (
-            "Recycle clean glass containers where accepted. Place broken "
-            "glass in a secure, clearly marked container."
+            "Wash glass bottles before recycling and place them "
+            "in designated glass recycling bins. Handle broken "
+            "glass carefully and keep it in a secure container."
+        ),
+        "tip": (
+            "Glass can be recycled repeatedly without losing its quality."
         ),
         "environment": (
-            "Recycling glass reduces landfill waste and the need for "
-            "new raw materials."
-        ),
-        "health": "Broken glass can cause cuts and injuries."
-    },
-
-    "organic": {
-        "name": "Organic Waste",
-        "action": (
-            "Compost suitable food scraps and plant waste at home "
-            "or through an authorized composting facility."
-        ),
-        "environment": (
-            "Composting returns nutrients to the soil. Organic waste "
-            "in landfills can generate methane during decomposition."
+            "Glass in landfills can remain for thousands of years. "
+            "Recycling glass reduces landfill waste and the need "
+            "for new raw materials."
         ),
         "health": (
-            "Poorly managed organic waste can attract pests "
-            "and produce unpleasant odours."
-        )
-    },
-
-    "paper": {
-        "name": "Paper Waste",
-        "action": (
-            "Keep paper clean and dry and send recyclable paper for "
-            "recycling. Avoid mixing it with food-contaminated "
-            "or heavily soiled waste."
-        ),
-        "environment": (
-            "Recycling can reduce the demand for virgin wood, "
-            "water, and energy."
-        ),
-        "health": (
-            "Damp or mouldy paper may contribute to respiratory "
-            "irritation in sensitive individuals."
-        )
-    },
-
-    "electronic": {
-        "name": "Electronic Waste",
-        "action": (
-            "Send electronic waste to an authorized collection centre "
-            "or registered recycler. Avoid burning or informally "
-            "dismantling electronic devices."
-        ),
-        "environment": (
-            "Improper handling can contaminate soil, water, and air "
-            "and waste recoverable materials."
-        ),
-        "health": (
-            "Unsafe dismantling or processing may expose people "
-            "to hazardous substances and toxic metals."
+            "Broken glass can cause deep cuts and injuries. "
+            "Improperly treated wounds may develop infections, "
+            "including tetanus."
         )
     },
 
     "metal": {
         "name": "Metal Waste",
         "action": (
-            "Separate recyclable metal and send it to an appropriate "
-            "scrap dealer or recycling facility. Handle sharp edges carefully."
+            "Separate metal cans and other recyclable metal items. "
+            "Send them to authorized scrap dealers or metal recycling centres."
+        ),
+        "tip": (
+            "Recycling aluminium can save up to 95% of the energy "
+            "required to produce it from raw materials."
         ),
         "environment": (
-            "Recycling conserves mineral resources and can reduce the "
-            "energy needed to produce metal from raw materials."
+            "Mining metals damages ecosystems, destroys natural habitats "
+            "and increases environmental pollution."
         ),
         "health": (
-            "Sharp edges can cause cuts. Coated or contaminated metal "
-            "may require special handling."
+            "Sharp metal edges can cause injuries. Rusty or contaminated "
+            "metal objects can create infection risks, including tetanus "
+            "through contaminated wounds."
+        )
+    },
+
+    "organic": {
+        "name": "Food / Organic Waste",
+        "action": (
+            "Compost vegetable peels, fruit waste and suitable food "
+            "leftovers. Use a home compost bin or an authorized "
+            "organic waste collection facility."
+        ),
+        "tip": (
+            "Compost can be used as natural fertilizer for plants and gardens."
+        ),
+        "environment": (
+            "Organic waste produces methane gas when it decomposes "
+            "in landfills. Methane contributes to climate change."
+        ),
+        "health": (
+            "Rotting food waste attracts flies, pests and harmful bacteria. "
+            "Poor waste management can contribute to the spread of "
+            "diseases such as cholera and typhoid."
+        )
+    },
+
+    "paper": {
+        "name": "Paper Waste",
+        "action": (
+            "Place paper in recycling bins. Keep paper clean and dry. "
+            "Separate recyclable paper from food-contaminated waste."
+        ),
+        "tip": (
+            "Recycled paper can be used to manufacture new cartons, "
+            "books and other paper products."
+        ),
+        "environment": (
+            "Excessive paper consumption increases the demand for trees "
+            "and contributes to deforestation."
+        ),
+        "health": (
+            "Burning paper releases smoke and fine particles that "
+            "may cause asthma and breathing problems."
+        )
+    },
+
+    "electronic": {
+        "name": "Electronic Waste",
+        "action": (
+            "Do not throw electronic waste into normal dustbins. "
+            "Take old electronic devices to an authorized e-waste "
+            "collection centre or registered recycler. Some electronic "
+            "stores also accept old batteries."
+        ),
+        "tip": (
+            "Electronic devices contain valuable materials such as "
+            "copper and gold that can be recovered through recycling."
+        ),
+        "environment": (
+            "Toxic substances such as lead and mercury can contaminate "
+            "soil and water when electronic waste is improperly discarded."
+        ),
+        "health": (
+            "Unsafe handling of e-waste may cause nervous system damage, "
+            "breathing problems and skin irritation. Long-term exposure "
+            "to certain hazardous substances may increase cancer risk."
+        )
+    },
+
+    "cloth": {
+        "name": "Cloth / Textile Waste",
+        "action": (
+            "Reuse old clothes, donate wearable garments and separate "
+            "unusable textiles for collection through textile recycling "
+            "programmes."
+        ),
+        "tip": (
+            "Old textiles can be converted into cleaning cloths, "
+            "insulation materials and recycled textile fibres."
+        ),
+        "environment": (
+            "Discarded textiles increase landfill waste. Synthetic fabrics "
+            "can release microfibres into the environment."
+        ),
+        "health": (
+            "Damp textile waste can encourage mould growth and may "
+            "cause skin irritation or respiratory discomfort."
+        )
+    },
+
+    "shoes": {
+        "name": "Footwear Waste",
+        "action": (
+            "Donate usable shoes, repair damaged footwear where possible "
+            "and send unusable shoes to appropriate footwear recycling "
+            "or collection programmes."
+        ),
+        "tip": (
+            "Some footwear materials, including rubber and certain plastics, "
+            "can be recovered and reused in new products."
+        ),
+        "environment": (
+            "Discarded shoes can remain in landfills for long periods "
+            "because they contain mixed materials such as rubber, foam "
+            "and synthetic plastics."
+        ),
+        "health": (
+            "Improperly discarded footwear can collect stagnant water "
+            "and attract insects and pests. Accumulated waste can "
+            "also create unhygienic surroundings."
         )
     }
 }
+
+
+
 
 
 # --------------------------------------------------
@@ -161,25 +243,87 @@ def normalize_category(label):
 # --------------------------------------------------
 
 
+
+
+
 def display_green_adviser(category):
+
     advice = GREEN_ADVISER[category]
 
-    st.subheader(f"♻️ {advice['name']} Detected")
+    html_code = f"""
+    <html>
+    <head>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 5px;
+        }}
 
-    st.markdown(
-        f"**Recommended Action:** {advice['action']}"
+        .green-adviser-card {{
+            background-color: #ffffff;
+            border-left: 5px solid #23833d;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+        }}
+
+        .green-adviser-title {{
+            color: #176b2c;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }}
+
+        .green-adviser-content {{
+            color: #333333;
+            font-size: 14px;
+            line-height: 1.8;
+        }}
+
+        .green-adviser-content b {{
+            color: #222222;
+        }}
+    </style>
+    </head>
+
+    <body>
+        <div class="green-adviser-card">
+
+            <div class="green-adviser-title">
+                ♻️ {advice['name']} Detected
+            </div>
+
+            <div class="green-adviser-content">
+
+                <b>Recommended Action:</b>
+                {advice['action']}<br>
+
+                <b>Recycling Tip:</b>
+                {advice['tip']}<br>
+
+                <b>Environmental Impact:</b>
+                {advice['environment']}<br>
+
+                <b>Health Risks:</b>
+                {advice['health']}
+
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+
+    st.components.v1.html(
+        html_code,
+        height=280,
+        scrolling=True
     )
 
-    st.markdown(
-        f"**Environmental Impact:** {advice['environment']}"
-    )
 
-    st.markdown(
-        f"**Health Hazards:** {advice['health']}"
-    )
 
-    st.divider()
-
+    
 # --------------------------------------------------
 # LOAD YOLOv8 MODEL
 # --------------------------------------------------
@@ -226,12 +370,14 @@ with col1:
             image,
             caption="Uploaded Image",
             use_container_width=True
+            # width=250
         )
     else:
         st.image(
             settings.DEFAULT_IMAGE,
             caption="Default Image",
             use_container_width=True
+            #width=250
         )
 
 
@@ -264,6 +410,8 @@ with col2:
                 caption="Detected Image",
                 channels="BGR",
                 use_container_width=True
+              # width=250
+                
             )
 
             # Extract recognized waste categories
@@ -273,17 +421,11 @@ with col2:
 
                 for class_id in result.boxes.cls.tolist():
                     label = result.names[int(class_id)]
-                    st.write("YOLO Detected Class:", label)
-
                     category = normalize_category(label)
-                    st.write("Green Adviser Category:", category)
-
                     if category:
                         detected_categories.add(category)
-                        st.success(
-                    f"Detection completed: "
-                    f"{len(result.boxes)} object(s) detected."
-                )
+                        
+                   
 
                 # Green Adviser section
                 st.markdown("---")
